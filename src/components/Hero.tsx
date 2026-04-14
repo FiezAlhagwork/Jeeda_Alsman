@@ -16,7 +16,7 @@ export default function Hero() {
     const ctx = gsap.context(() => {
       // Parallax effect for the massive background text
       animateWithGsap(textRef.current, { y: -50 }, { start: "top 85%", end: "bottom top", scrub: 1.5 });
-      animateWithGsap(imageRef.current, { scale: 1.5 }, { start: "top 85%", end: "bottom top", scrub: 1.5 });
+      animateWithGsap(imageRef.current, { scale: 1.15  }, { start: "top 85%", end: "bottom top", scrub: 1.5 });
 
       // Text reveal animation
       if (descriptionRef.current) {
