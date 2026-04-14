@@ -1,0 +1,19 @@
+@import "tailwindcss";
+
+@theme {
+  --color-obsidian: #140C08;
+  --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
+}
+
+@layer base {
+  body {
+    @apply bg-obsidian text-white antialiased selection:bg-white selection:text-obsidian;
+    font-feature-settings: "ss01", "ss02", "cv01", "cv02";
+  }
+}
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+}
