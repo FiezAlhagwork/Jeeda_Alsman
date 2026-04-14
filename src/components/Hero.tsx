@@ -6,6 +6,7 @@ import { animateWithGsap, animateWithGsapForm } from "../utils/animations";
 
 
 
+
 export default function Hero() {
   const containerRef = useRef<HTMLDivElement>(null);
   const textRef = useRef<HTMLHeadingElement>(null);
@@ -16,7 +17,7 @@ export default function Hero() {
     const ctx = gsap.context(() => {
       // Parallax effect for the massive background text
       animateWithGsap(textRef.current, { y: -50 }, { start: "top 85%", end: "bottom top", scrub: 1.5 });
-      animateWithGsap(imageRef.current, { scale: 1.15  }, { start: "top 85%", end: "bottom top", scrub: 1.5 });
+      animateWithGsap(imageRef.current, { scale: 1.15 }, { start: "top 85%", end: "bottom top", scrub: 1.5 });
 
       // Text reveal animation
       if (descriptionRef.current) {
@@ -40,6 +41,7 @@ export default function Hero() {
     return () => ctx.revert();
   }, []);
 
+
   return (
     <section
       ref={containerRef}
@@ -50,8 +52,6 @@ export default function Hero() {
         ref={imageRef}
         className="absolute inset-0 z-0"
       >
-
-
         <div className=" absolute inset-0 z-10 " />
         <div className=" absolute inset-0 z-10 " />
         <img
@@ -71,11 +71,10 @@ export default function Hero() {
           I design and build high converting websites and save your time with AI automations
         </p>
 
-        <HeroCtaButton  />
+        <HeroCtaButton />
       </div>
 
       {/* Massive Background Text */}
-
       <h1
         ref={textRef}
         className="absolute bottom-0  left-1/2 -translate-x-1/2 md:text-[17vw] sm:text-[35vw] text-[30vw] font-black leading-none text-white/90 select-none z-30 pointer-events-none tracking-tighter whitespace-nowrap"

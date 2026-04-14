@@ -61,8 +61,8 @@ export default function Process() {
         if (titleEl) {
           gsap.from(titleEl, {
             opacity: 0,
-            scale: 1.06,
-            duration: 1.2,
+            y: 30,
+            duration: 1,
             ease: "power3.out",
             scrollTrigger: {
               trigger: titleEl,

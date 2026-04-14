@@ -3,6 +3,7 @@ import { ScrollTrigger } from "gsap/ScrollTrigger";
 import gsap from "gsap";
 import { useGSAP } from "@gsap/react";
 import { ArrowUpRight } from "lucide-react";
+import { animateWithGsap } from "../utils/animations";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -15,16 +16,10 @@ export default function HeroCtaButton({ label = "Start Your Project" }: HeroCtaB
 
   useGSAP(() => {
     if (!btnRef.current) return;
-
-    gsap.to(
+    animateWithGsap(
       btnRef.current,
-      {
-        opacity: 1, y: 0, duration: 0.7, delay: 1, ease: "power3.out", scrollTrigger: {
-          trigger: btnRef.current,
-          start: "top 85%",
-        },
-      }
-
+      { opacity: 1, y: 0, duration: 0.7, delay: 1, ease: "power3.out" },
+      { start: "top 85%", },
     );
   }, []);
 

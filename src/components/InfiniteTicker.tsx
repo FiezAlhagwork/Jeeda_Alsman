@@ -12,6 +12,7 @@ import {
   Figma,
   Smartphone
 } from "lucide-react";
+import { useGSAP } from "@gsap/react";
 
 const skills = [
   { label: "Website Design", icon: Layout },
@@ -30,13 +31,13 @@ export default function InfiniteTicker() {
   const tickerRef = useRef<HTMLDivElement>(null);
   const trackRef = useRef<HTMLDivElement>(null);
 
-  useEffect(() => {
+  useGSAP(() => {
     if (!trackRef.current) return;
 
     const track = trackRef.current;
 
     // Create the infinite loop animation
-    const animation = gsap.to(track, {
+    const animation = gsap.to(trackRef.current, {
       xPercent: -50,
       repeat: -1,
       duration: 10,

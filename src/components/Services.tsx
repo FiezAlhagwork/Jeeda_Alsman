@@ -1,12 +1,12 @@
 import { useRef } from "react";
 import { gsap } from "gsap";
-import { ScrollTrigger } from "gsap/ScrollTrigger";
-import { Layout, Smartphone, Compass, Bot, ArrowUpRight } from "lucide-react";
+import { Layout, Smartphone, Compass, Bot } from "lucide-react";
 import ServiceCard from "./ServiceCard";
 import { useGSAP } from "@gsap/react";
 import HeroCtaButton from "./HeroCtaButton";
+import { animateWithGsapForm } from "../utils/animations";
 
-gsap.registerPlugin(ScrollTrigger);
+
 
 const services = [
   {
@@ -40,40 +40,36 @@ export default function Services() {
   useGSAP(() => {
     const ctx = gsap.context(() => {
       // Header animation
-      gsap.from(headerRef.current, {
+      animateWithGsapForm(headerRef.current, {
         opacity: 0,
-        x: -30,
-        duration: 1,
-        ease: "power3.out",
-        scrollTrigger: {
-          trigger: headerRef.current,
-          start: "top 90%",
-        },
-      });
+        y: 30,
+        duration: 1.2,
+        ease: "power3.out"
+      }, { start: "top 85%", },);
 
       // Button animation
-      gsap.from(buttonRef.current, {
+      animateWithGsapForm(buttonRef.current, {
         opacity: 0,
         x: 30,
         duration: 1,
-        ease: "power3.out",
-        scrollTrigger: {
-          trigger: buttonRef.current,
-          start: "top 90%",
+        ease: "power3.out"
+      },
+        {
+          start: "top 75%",
         },
-      });
+      );
 
       // Cards animation
-      gsap.from(".service-card", {
+      animateWithGsapForm(".service-card", {
         opacity: 0,
         duration: 1,
         stagger: 0.15,
-        ease: "power3.out",
-        scrollTrigger: {
-          trigger: cardsContainerRef.current,
+        ease: "power3.out"
+      },
+        {
           start: "top 85%",
         },
-      });
+      );
     }, sectionRef);
 
     return () => ctx.revert();
@@ -82,7 +78,7 @@ export default function Services() {
   return (
     <section ref={sectionRef} id="services" className="py-24 bg-[#0A0A0A] text-white overflow-hidden">
       <div className="max-w-7xl mx-auto px-6 md:px-10">
-        <div className="flex flex-col md:flex-row justify-between items-start md:items-center mb-16 gap-8">
+        <div className="flex flex-col md:flex-row justify-between items-center mb-16 gap-8">
           <h2
             ref={headerRef}
             className="text-2xl md:text-3xl lg:text-4xl font-extrabold tracking-tight max-w-2xl"

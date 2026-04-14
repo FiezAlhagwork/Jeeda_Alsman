@@ -437,7 +437,7 @@ export const StaggeredMenu: React.FC<StaggeredMenuProps> = ({
               )}
             </div>
 
-            <div className="w-[1px] h-4 bg-white/10" />
+            <div className="w-px h-4 bg-white/10" />
 
             <button
               ref={toggleBtnRef}

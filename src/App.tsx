@@ -1,9 +1,5 @@
-/**
- * @license
- * SPDX-License-Identifier: Apache-2.0
- */
 
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import Lenis from "lenis";
 import Hero from "./components/Hero";
 import StaggeredMenu from "./components/StaggeredMenu";
@@ -11,6 +7,8 @@ import Services from "./components/Services";
 import InfiniteTicker from "./components/InfiniteTicker";
 import Process from "./components/Process";
 import Pricing from "./components/Pricing";
+import JeedaLoader from "./components/JeedaLoader";
+
 
 const menuItems = [
   { label: 'Home', ariaLabel: 'Go to home page', link: '/' },
@@ -28,7 +26,11 @@ const socialItems = [
 ];
 
 export default function App() {
+  const [isLoading, setIsLoading] = useState(true);
+
   useEffect(() => {
+    if (isLoading) return;
+
     const lenis = new Lenis({
       duration: 1.2,
       easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
@@ -45,9 +47,12 @@ export default function App() {
       lenis.destroy();
     };
   }, []);
-
   return (
     <main className="relative min-h-screen">
+
+      {isLoading && (
+        <JeedaLoader key="loader" onComplete={() => setIsLoading(false)} />
+      )}
       <StaggeredMenu
         position="right"
         items={menuItems}
@@ -67,8 +72,8 @@ export default function App() {
       <InfiniteTicker />
       <Process />
       <Pricing />
-      
-    
+
+
       <footer className="py-24 px-8 border-t border-white/5">
         <div className="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-start gap-12">
           <div>
