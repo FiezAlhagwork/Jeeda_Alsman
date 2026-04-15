@@ -120,10 +120,10 @@ export default function Projects() {
               <div className="absolute inset-x-0 bottom-0 p-8 md:p-12 bg-gradient-to-t from-black/80 via-black/40 to-transparent z-30">
                 <div className="flex justify-between items-end">
                   <div>
-                    <span className="text-xs uppercase tracking-[0.3em] text-[#a51223] font-bold mb-2 block">
+                    <span className="text-sm uppercase tracking-[0.3em] text-[#ffffff] font-bold mb-2 block">
                       {category.projectCount} Projects
                     </span>
-                    <h3 className="text-3xl md:text-4xl font-black tracking-tighter">
+                    <h3 className="text-4xl md:text-5xl font-black tracking-tighter">
                       {category.name}
                     </h3>
                   </div>
