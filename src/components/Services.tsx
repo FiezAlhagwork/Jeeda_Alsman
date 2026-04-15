@@ -1,33 +1,33 @@
 import { useRef } from "react";
 import { gsap } from "gsap";
-import { Layout, Smartphone, Compass, Bot } from "lucide-react";
+import { Video, Send, Smartphone, Paintbrush } from "lucide-react";
 import ServiceCard from "./ServiceCard";
 import { useGSAP } from "@gsap/react";
 import HeroCtaButton from "./HeroCtaButton";
-import { animateWithGsapForm } from "../utils/animations";
+import { animateFromToWithGsap, animateWithGsapForm } from "../utils/animations";
 
 
 
 const services = [
   {
-    title: "Website Design & Development",
-    description: "Get a unique website built by a hybrid designer-developer. I combine modern aesthetics with robust coding and advanced SEO to create a fast, sales-focused digital experience.",
-    icon: Layout,
+    title: "Graphic Design",
+    description: "Crafting refined visual identities and striking designs that capture attention and communicate your brand with clarity.",
+    icon: Paintbrush,
   },
   {
-    title: "UI/UX Design",
-    description: "Elevate your user experience. I design intuitive, high-converting interfaces for web and mobile apps that strengthen your brand value.",
+    title: "Video Editing",
+    description: "Delivering cinematic, high-impact videos with seamless editing, smooth transitions, and compelling storytelling.",
+    icon: Video,
+  },
+  {
+    title: "Social Content",
+    description: "Designing visually cohesive content that enhances your presence and drives meaningful engagement.",
     icon: Smartphone,
   },
   {
-    title: "Strategic Consultations",
-    description: "Get clarity on your next digital move. Whether it's a website audit, a redesign roadmap, or brainstorming custom AI workflows, I provide actionable insights tailored to your goals.",
-    icon: Compass,
-  },
-  {
-    title: "AI Automations",
-    description: "Streamline your operations. I build custom AI chatbots and smart n8n workflows to automate your marketing and repetitive tasks.",
-    icon: Bot,
+    title: "Creative Direction",
+    description: "Shaping a strong, consistent visual vision that positions your brand with confidence and style.",
+    icon: Send,
   },
 ];
 
@@ -59,17 +59,23 @@ export default function Services() {
         },
       );
 
-      // Cards animation
-      animateWithGsapForm(".service-card", {
-        opacity: 0,
-        duration: 1,
-        stagger: 0.15,
-        ease: "power3.out"
-      },
+      const cards = cardsContainerRef.current?.children;
+      if (!cards) return;
+
+      const elements = Array.from(cards) as HTMLElement[];
+
+      animateFromToWithGsap(
+        elements,
+        { opacity: 0, y: 80 },
         {
-          start: "top 85%",
-        },
+          opacity: 1,
+          y: 0,
+          ease: "power1.inOut",
+          stagger: 0.4,
+        }
       );
+
+
     }, sectionRef);
 
     return () => ctx.revert();

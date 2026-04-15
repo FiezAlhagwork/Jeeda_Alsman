@@ -18,7 +18,7 @@ export default function HeroCtaButton({ label = "Start Your Project" }: HeroCtaB
     if (!btnRef.current) return;
     animateWithGsap(
       btnRef.current,
-      { opacity: 1, y: 0, duration: 0.7, delay: 1, ease: "power3.out" },
+      { opacity: 1, y: 0, duration: 0.7, delay: 0.7, ease: "power3.out" },
       { start: "top 85%", },
     );
   }, []);

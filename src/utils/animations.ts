@@ -29,3 +29,28 @@ export const animateWithGsapForm = (
     },
   });
 };
+
+
+export const animateFromToWithGsap = (
+  target: string | HTMLElement | HTMLElement[],
+  fromProps: gsap.TweenVars,
+  toProps: gsap.TweenVars,
+  scrollProps?: ScrollTrigger.Vars
+): void => {
+  gsap.fromTo(
+    target,
+    {
+      ...fromProps,
+    },
+    {
+      ...toProps,
+      scrollTrigger: {
+        trigger: Array.isArray(target) ? target[0] : target,
+        // toggleActions: "restart reverse restart reverse",
+        once: true, // ✅ يشتغل مرة وحدة فقط
+        start: "top 80%",
+        ...scrollProps,
+      },
+    }
+  );
+};

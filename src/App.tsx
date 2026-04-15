@@ -1,80 +1,26 @@
 
-import { useEffect, useState } from "react";
-import Lenis from "lenis";
-import Hero from "./components/Hero";
-import StaggeredMenu from "./components/StaggeredMenu";
-import Services from "./components/Services";
-import InfiniteTicker from "./components/InfiniteTicker";
-import Process from "./components/Process";
-import Pricing from "./components/Pricing";
-import JeedaLoader from "./components/JeedaLoader";
 
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import Home from "./pages/Home";
 
-const menuItems = [
-  { label: 'Home', ariaLabel: 'Go to home page', link: '/' },
-  { label: 'About', ariaLabel: 'Learn about us', link: '#about' },
-  { label: 'Services', ariaLabel: 'View our services', link: '#services' },
-  { label: 'Process', ariaLabel: 'Our process', link: '#process' },
-  { label: 'Pricing', ariaLabel: 'Our pricing', link: '#pricing' },
-  { label: 'Contact', ariaLabel: 'Get in touch', link: '#contact' }
-];
-
-const socialItems = [
-  { label: 'Twitter', link: 'https://twitter.com' },
-  { label: 'GitHub', link: 'https://github.com' },
-  { label: 'LinkedIn', link: 'https://linkedin.com' }
-];
 
 export default function App() {
-  const [isLoading, setIsLoading] = useState(true);
 
-  useEffect(() => {
-    if (isLoading) return;
-
-    const lenis = new Lenis({
-      duration: 1.2,
-      easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
-    });
-
-    function raf(time: number) {
-      lenis.raf(time);
-      requestAnimationFrame(raf);
-    }
-
-    requestAnimationFrame(raf);
-
-    return () => {
-      lenis.destroy();
-    };
-  }, []);
   return (
     <main className="relative min-h-screen">
 
-      {isLoading && (
-        <JeedaLoader key="loader" onComplete={() => setIsLoading(false)} />
-      )}
-      <StaggeredMenu
-        position="right"
-        items={menuItems}
-        socialItems={socialItems}
-        displaySocials
-        displayItemNumbering={true}
-        menuButtonColor="#ffffff"
-        openMenuButtonColor="#ffffff"
-        changeMenuColorOnOpen={true}
-        colors={['#000000', '#a51223']}
-        logoText="JEDDA"
-        accentColor="#a51223"
-        isFixed={true}
-      />
-      <Hero />
-      <Services />
-      <InfiniteTicker />
-      <Process />
-      <Pricing />
+      <Router>
+        <Routes>
+          <Route path="/" element={<Home />} />
+        </Routes>
+      </Router>
 
 
-      <footer className="py-24 px-8 border-t border-white/5">
+
+
+
+
+      <footer className="py-24 px-8 border-t border-white/5 ">
         <div className="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-start gap-12">
           <div>
             <h2 className="text-6xl font-black mb-8">JEDDA</h2>
