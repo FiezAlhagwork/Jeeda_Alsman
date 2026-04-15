@@ -2,6 +2,9 @@
 
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Home from "./pages/Home";
+import ClientPage from "./pages/ClientPage";
+
+
 
 
 export default function App() {
@@ -12,6 +15,7 @@ export default function App() {
       <Router>
         <Routes>
           <Route path="/" element={<Home />} />
+          <Route path="/projects/:clientId" element={<ClientPage />} />
         </Routes>
       </Router>
 
