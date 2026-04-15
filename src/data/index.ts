@@ -70,6 +70,27 @@ export const clientsData: Client[] = [
             { id: 212, title: "Neon Nights", category: "Content", image: "./soft12.jpg", description: "Festival visual content." },
         ]
     },
+
+
+    {
+        id: "eilajCare",
+        name: "Eilaj Care ",
+        description: "Experimental typography and layout design for cultural and commercial events.",
+        projectCount: 18,
+        type: "posters",
+        previewImages: [
+            "./eilajCare1.jpg",
+            "./eilajCare2.jpg",
+        ],
+        projects: [
+            { id: 401, title: "Vivid Visions", category: "Experimental", image: "./eilajCare1.jpg", description: "Color theory exploration." },
+            { id: 402, title: "Minimalist Muse", category: "Architecture", image: "./eilajCare2.jpg", description: "Exhibition poster series." },
+            { id: 403, title: "Minimalist Muse", category: "Architecture", image: "./eilajCare3.jpg", description: "Exhibition poster series." },
+            { id: 404, title: "Minimalist Muse", category: "Architecture", image: "./eilajCare4.jpg", description: "Exhibition poster series." },
+            { id: 405, title: "Minimalist Muse", category: "Architecture", image: "./eilajCare5.jpg", description: "Exhibition poster series." },
+            { id: 406, title: "Minimalist Muse", category: "Architecture", image: "./eilajCare6.jpg", description: "Exhibition poster series." },
+        ]
+    },
     {
         id: "BabyJoy",
         name: "Baby Joy",
@@ -90,26 +111,6 @@ export const clientsData: Client[] = [
             { id: 605, title: "App Promo", category: "Explainer", image: "./Teemo.jpg", description: "Feature highlight animation." },
             { id: 606, title: "App Promo", category: "Explainer", image: "./Teemo1.jpg", description: "Feature highlight animation." },
             { id: 607, title: "App Promo", category: "Explainer", image: "./Teemo2.jpg", description: "Feature highlight animation." },
-        ]
-    },
-
-    {
-        id: "eilajCare",
-        name: "Eilaj Care ",
-        description: "Experimental typography and layout design for cultural and commercial events.",
-        projectCount: 18,
-        type: "posters",
-        previewImages: [
-            "./eilajCare1.jpg",
-            "./eilajCare2.jpg",
-        ],
-        projects: [
-            { id: 401, title: "Vivid Visions", category: "Experimental", image: "./eilajCare1.jpg", description: "Color theory exploration." },
-            { id: 402, title: "Minimalist Muse", category: "Architecture", image: "./eilajCare2.jpg", description: "Exhibition poster series." },
-            { id: 403, title: "Minimalist Muse", category: "Architecture", image: "./eilajCare3.jpg", description: "Exhibition poster series." },
-            { id: 404, title: "Minimalist Muse", category: "Architecture", image: "./eilajCare4.jpg", description: "Exhibition poster series." },
-            { id: 405, title: "Minimalist Muse", category: "Architecture", image: "./eilajCare5.jpg", description: "Exhibition poster series." },
-            { id: 406, title: "Minimalist Muse", category: "Architecture", image: "./eilajCare6.jpg", description: "Exhibition poster series." },
         ]
     },
     {

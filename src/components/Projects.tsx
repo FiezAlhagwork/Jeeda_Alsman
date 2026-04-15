@@ -73,8 +73,8 @@ export default function Projects() {
                   {category.type === "branding" && (
                     <div className="relative w-full h-full">
                       <img src={category.previewImages[0]} className="absolute top-0 left-0 md:w-1/2 w-3/4   h-full object-cover rounded-2xl shadow-2xl z-10" alt="" referrerPolicy="no-referrer" />
-                      <img src={category.previewImages[1]} className="absolute top-4 md:right-8 right-0 md:w-[50%] md:h-[70%] w-1/2 h-1/2 object-cover rounded-2xl shadow-2xl z-20 border-4 border-zinc-900" alt="" referrerPolicy="no-referrer" />
-                      <img src={category.previewImages[2]} className="absolute md:-bottom-15 bottom-4 right-6 w-1/3 md:h-[60%] h-[40%] object-cover rounded-2xl shadow-2xl z-30 border-4 border-zinc-900" alt="" referrerPolicy="no-referrer" />
+                      <img src={category.previewImages[1]} className="absolute top-4 md:right-8 -right-6 md:w-[50%] md:h-[70%] w-1/2 h-1/2 object-cover rounded-2xl shadow-2xl z-20 border-4 border-zinc-900" alt="" referrerPolicy="no-referrer" />
+                      <img src={category.previewImages[2]} className="absolute md:-bottom-15 bottom-4 right-2 w-1/3 md:h-[60%] h-[40%] object-cover rounded-2xl shadow-2xl z-30 border-4 border-zinc-900" alt="" referrerPolicy="no-referrer" />
                     </div>
                   )}
                   {category.type === "social" && (
