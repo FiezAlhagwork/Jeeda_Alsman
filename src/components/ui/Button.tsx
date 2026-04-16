@@ -3,7 +3,7 @@ import { ScrollTrigger } from "gsap/ScrollTrigger";
 import gsap from "gsap";
 import { useGSAP } from "@gsap/react";
 import { ArrowUpRight } from "lucide-react";
-import { animateWithGsap } from "../utils/animations";
+import { animateWithGsap } from "../../utils/animations";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -11,7 +11,7 @@ type HeroCtaButtonProps = {
   label?: string;
 };
 
-export default function HeroCtaButton({ label = "Start Your Project" }: HeroCtaButtonProps) {
+export default function Button({ label = "Start Your Project" }: HeroCtaButtonProps) {
   const btnRef = useRef<HTMLButtonElement | null>(null);
 
   useGSAP(() => {

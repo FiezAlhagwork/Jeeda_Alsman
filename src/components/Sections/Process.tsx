@@ -1,41 +1,11 @@
 import { useLayoutEffect, useRef } from "react";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
-import { MessageSquare, Palette, Rocket, CheckCircle2, Heart } from "lucide-react";
-import ProcessStepCard from "./ProcessStepCard";
+import ProcessStepCard from "../ui/ProcessStepCard";
+import { steps } from "@/src/data";
 
 gsap.registerPlugin(ScrollTrigger);
 
-const steps = [
-  {
-    number: "Step 1",
-    title: "Get in Touch",
-    description:
-      "Reach out through our contact page. Fill out the form or book a call to discuss your project, goals, and needs in even greater detail.",
-    icon: MessageSquare,
-  },
-  {
-    number: "Step 2",
-    title: "Grab Your Designs",
-    description:
-      "Tell me your unique vision, and I'll create stunning, functional designs that perfectly align with your goals and bring your ideas to life seamlessly.",
-    icon: Palette,
-  },
-  {
-    number: "Step 3",
-    title: "Kickstart Development",
-    description:
-      "I expertly transform your designs into a powerful, scalable solution, fully ready to launch and optimized for performance, usability, and growth.",
-    icon: Rocket,
-  },
-  {
-    number: "Step 4",
-    title: "Launch & Support",
-    description:
-      "And finally, we launch! I'll be there to ensure everything runs smoothly and provide ongoing support as your business grows.",
-    icon: CheckCircle2,
-  },
-];
 
 export default function Process() {
   const sectionRef = useRef<HTMLElement>(null);
@@ -66,7 +36,7 @@ export default function Process() {
             ease: "power3.out",
             scrollTrigger: {
               trigger: titleEl,
-              start: "top 85%",
+              start: "top 70%",
             },
           });
         }
@@ -145,21 +115,6 @@ export default function Process() {
               />
             ))}
           </div>
-        </div>
-      </div>
-
-      <div className="max-w-7xl mx-auto px-6 md:px-10 pb-10 pt-12 flex justify-center">
-        <div
-          ref={pillRef}
-          className="inline-flex flex-col items-center gap-2 px-16 py-4 rounded-2xl bg-[#111111] border-t border-[#1F2937] text-center"
-        >
-          <div className="flex items-center gap-2 text-xl font-medium">
-            <Heart className="w-5 h-5 text-white" aria-hidden />
-            <span>I am with you in every step</span>
-          </div>
-          <span className="text-sm text-zinc-500">
-            alongside you at each step for seamless experience
-          </span>
         </div>
       </div>
     </section>

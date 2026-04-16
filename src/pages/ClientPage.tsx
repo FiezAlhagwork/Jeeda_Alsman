@@ -2,7 +2,6 @@ import { useEffect, useRef } from "react";
 import { Link, useNavigate, useParams } from "react-router-dom";
 import { gsap } from "gsap";
 import { ArrowLeft, ArrowUpRight } from "lucide-react";
-
 import { clientsData } from "../data";
 
 export default function ClientPage() {
@@ -81,14 +80,12 @@ export default function ClientPage() {
                   alt={project.title}
                   className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
                   referrerPolicy="no-referrer"
+                  loading="lazy"
                 />
                 <div className="absolute inset-0 bg-black/80 opacity-0 group-hover:opacity-100 transition-all duration-500 flex flex-col justify-end p-8">
                   <span className="text-xs uppercase tracking-widest text-[#a51223] font-bold mb-2 transform translate-y-4 group-hover:translate-y-0 transition-transform duration-500 delay-75">
                     {project.category}
                   </span>
-                  <h3 className="text-2xl font-black mb-4 transform translate-y-4 group-hover:translate-y-0 transition-transform duration-500 delay-100">
-                    {project.title}
-                  </h3>
                   <span className="flex items-center gap-2 text-sm font-bold text-white border-b border-white w-fit pb-1 transform translate-y-4 group-hover:translate-y-0 transition-transform duration-500 delay-150">
                     View Case Study <ArrowUpRight className="w-4 h-4" />
                   </span>

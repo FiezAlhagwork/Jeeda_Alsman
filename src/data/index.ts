@@ -1,3 +1,5 @@
+import { Paintbrush, Send, Smartphone, Video } from "lucide-react";
+import { Ear, Lightbulb, PenTool, Sparkles, Truck } from "lucide-react";
 export interface Project {
     id: number;
     title?: string;
@@ -166,3 +168,67 @@ export const clientsData: Client[] = [
     // },
 
 ];
+ 
+
+
+export const services = [
+    {
+      title: "Graphic Design",
+      description: "Crafting refined visual identities and striking designs that capture attention and communicate your brand with clarity.",
+      icon: Paintbrush,
+    },
+    {
+      title: "Video Editing",
+      description: "Delivering cinematic, high-impact videos with seamless editing, smooth transitions, and compelling storytelling.",
+      icon: Video,
+    },
+    {
+      title: "Social Content",
+      description: "Designing visually cohesive content that enhances your presence and drives meaningful engagement.",
+      icon: Smartphone,
+    },
+    {
+      title: "Creative Direction",
+      description: "Shaping a strong, consistent visual vision that positions your brand with confidence and style.",
+      icon: Send,
+    },
+  ]; 
+
+  export const steps = [
+    {
+      number: "Step 1",
+      title: "Listen",
+      description:
+        "I start by deeply understanding the client’s needs, goals, and vision.",
+      icon: Ear,
+    },
+    {
+      number: "Step 2",
+      title: "Think",
+      description:
+        "I analyze the requirements and plan the best approach to achieve the desired outcome.",
+      icon: Lightbulb,
+    },
+    {
+      number: "Step 3",
+      title: "Create",
+      description:
+        "I turn ideas into creative and visually appealing designs with attention to detail.",
+      icon: PenTool,
+    },
+    {
+      number: "Step 4",
+      title: "Improve",
+      description:
+        "I refine and enhance the design based on feedback to reach the best version.",
+      icon: Sparkles,
+    },
+    {
+      number: "Step 5",
+      title: "Deliver",
+      description:
+        "I deliver the final work professionally, ready to use, and aligned with client expectations.",
+      icon: Truck,
+    },
+  ];
+  

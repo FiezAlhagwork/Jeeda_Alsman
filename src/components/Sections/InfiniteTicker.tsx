@@ -1,30 +1,26 @@
-import { useEffect, useRef } from "react";
+import {  useRef } from "react";
 import { gsap } from "gsap";
 import {
-  Code2,
-  Cpu,
-  Globe,
+  PenTool,
   Layers,
   Layout,
-  MessageSquare,
-  Search,
-  Zap,
-  Figma,
-  Smartphone
+  Megaphone,
+  BookOpen,
+  Newspaper,
+  Album,
+  Camera
 } from "lucide-react";
 import { useGSAP } from "@gsap/react";
 
 const skills = [
-  { label: "Website Design", icon: Layout },
-  { label: "Custom Code", icon: Code2 },
-  { label: "SEO Optimization", icon: Search },
-  { label: "AI Automations", icon: Cpu },
-  { label: "UI/UX Design", icon: Figma },
-  { label: "Mobile Responsive", icon: Smartphone },
-  { label: "WhatsApp Bots", icon: MessageSquare },
-  { label: "Performance", icon: Zap },
-  { label: "Digital Strategy", icon: Globe },
-  { label: "Webflow Expert", icon: Layers },
+  { label: "Logo Design", icon: PenTool },
+  { label: "Brand Identity", icon: Layers },
+  { label: "Post Design", icon: Layout },
+  { label: "Advertisement Design", icon: Megaphone },
+  { label: "Brochure", icon: BookOpen },
+  { label: "Flyer Design", icon: Newspaper },
+  { label: "Covers", icon: Album },
+  { label: "Photo Editing", icon: Camera },
 ];
 
 export default function InfiniteTicker() {

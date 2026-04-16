@@ -1,12 +1,11 @@
 import { useRef, useState } from "react";
-import { gsap } from "gsap";
-import { ScrollTrigger } from "gsap/ScrollTrigger";
+
 import { MessageCircle, Send, User, MessageSquare } from "lucide-react";
 import { useGSAP } from "@gsap/react";
-import TextInput from "./TextInput";
-import TextArea from "./TextArea";
+import TextInput from "../ui/TextInput";
+import TextArea from "../ui/TextArea";
+import { animateWithGsapForm } from "@/src/utils/animations";
 
-gsap.registerPlugin(ScrollTrigger);
 
 export default function Contact() {
     const sectionRef = useRef<HTMLElement>(null);
@@ -14,39 +13,41 @@ export default function Contact() {
     const [message, setMessage] = useState("");
 
     useGSAP(() => {
-        const ctx = gsap.context(() => {
-            gsap.from(".contact-header > *", {
-                opacity: 0,
-                y: 30,
-                duration: 0.8,
-                stagger: 0.2,
-                ease: "power3.out",
-                scrollTrigger: {
-                    trigger: ".contact-header",
-                    start: "top 85%",
-                },
-            });
+        animateWithGsapForm(".contact-header > *", {
+            opacity: 0,
+            y: 30,
+            duration: 0.8,
+            stagger: 0.2,
+            ease: "power3.out",
+        },
+            {
+                trigger: ".contact-header",
+                start: "top 85%",
+            },
+        );
+        animateWithGsapForm(".contact-content > *", {
+            opacity: 0,
+            y: 40,
+            duration: 1,
+            stagger: 0.2,
+            ease: "power3.out"
+        },
+            {
+                trigger: ".contact-content",
+                start: "top 80%",
+            },
+        );
 
-            gsap.from(".contact-content > *", {
-                opacity: 0,
-                y: 40,
-                duration: 1,
-                stagger: 0.2,
-                ease: "power3.out",
-                scrollTrigger: {
-                    trigger: ".contact-content",
-                    start: "top 80%",
-                },
-            });
-        }, sectionRef);
 
-        return () => ctx.revert();
-    }, []);
+
+    }, { scope: sectionRef });
 
     const handleSend = (platform: "whatsapp" | "telegram") => {
         if (!name || !message) return;
 
-        const fullMessage = `Hello, my name is ${name}. ${message}`;
+        const fullMessage = `Hello, my name is 
+                ${name}.
+                 ${message}`;
         const encodedMessage = encodeURIComponent(fullMessage);
 
         if (platform === "whatsapp") {
@@ -63,7 +64,7 @@ export default function Contact() {
             <div className="max-w-7xl mx-auto">
                 {/* Section Header */}
                 <div className="contact-header mb-20 text-center">
-                    <h2 className="text-5xl md:text-7xl font-black mb-6 tracking-tighter italic">
+                    <h2 className="text-5xl md:text-7xl font-black mb-6 tracking-tighter ">
                         Contact Me
                     </h2>
                     <p className="text-zinc-400 text-lg md:text-xl max-w-2xl mx-auto leading-relaxed">

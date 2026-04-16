@@ -1,49 +1,50 @@
-import { useEffect, useRef } from "react";
-import { gsap } from "gsap";
-import { ScrollTrigger } from "gsap/ScrollTrigger";
+import { useRef } from "react";
 import { ArrowRight } from "lucide-react";
 import { Link } from "react-router-dom";
-
 import { useGSAP } from "@gsap/react";
-import { clientsData } from "../data";
-
-gsap.registerPlugin(ScrollTrigger);
+import { clientsData } from "@/src/data";
+import { animateWithGsapForm } from "@/src/utils/animations";
 
 export default function Projects() {
   const sectionRef = useRef<HTMLElement>(null);
   const headerRef = useRef<HTMLDivElement>(null);
 
   useGSAP(() => {
-    const ctx = gsap.context(() => {
-      // Header Animation
-      gsap.from(headerRef.current?.children || [], {
-        opacity: 0,
-        y: 30,
-        duration: 0.8,
-        stagger: 0.2,
-        ease: "power3.out",
-        scrollTrigger: {
-          trigger: headerRef.current,
-          start: "top 85%",
-        },
-      });
+    // Header Animation
 
-      // Cards Animation
-      gsap.from(".category-card", {
-        opacity: 0,
-        y: 50,
-        duration: 1,
-        stagger: 0.15,
-        ease: "power3.out",
-        scrollTrigger: {
-          trigger: ".categories-grid",
-          start: "top 80%",
-        },
-      });
-    }, sectionRef);
+    const headerChildren = headerRef.current
+      ? Array.from(headerRef.current.children).filter(
+        (el): el is HTMLElement => el instanceof HTMLElement
+      )
+      : [];
 
-    return () => ctx.revert();
-  }, []);
+    animateWithGsapForm(headerChildren, {
+      opacity: 0,
+      y: 30,
+      duration: 0.8,
+      stagger: 0.2,
+      ease: "power3.out"
+    },
+      {
+        trigger: headerRef.current,
+        start: "top 85%",
+      },
+    );
+
+    // Cards Animation
+    animateWithGsapForm(".category-card", {
+      opacity: 0,
+      y: 50,
+      duration: 1,
+      stagger: 0.15,
+      ease: "power3.out",
+    },
+      {
+        trigger: ".categories-grid",
+        start: "top 80%",
+      },
+    );
+  }, { scope: sectionRef });
 
   return (
     <section ref={sectionRef} id="project" className="py-32 px-6 md:px-10 bg-[#000000] text-white">
@@ -55,7 +56,7 @@ export default function Projects() {
           </h2>
           <p className="text-zinc-400  text-lg md:text-xl  leading-relaxed">
             Explore my work by category. Each project is a unique blend of strategy,
-            creativity, and technical excellence.
+            creativity,  excellence.
           </p>
         </div>
 
@@ -72,15 +73,15 @@ export default function Projects() {
                 <div className="relative w-full h-full transition-transform duration-700 lg:group-hover:scale-105">
                   {category.type === "branding" && (
                     <div className="relative w-full h-full">
-                      <img src={category.previewImages[0]} className="absolute top-0 left-0 md:w-1/2 w-3/4   h-full object-cover rounded-2xl shadow-2xl z-10" alt="" referrerPolicy="no-referrer" />
-                      <img src={category.previewImages[1]} className="absolute top-4 md:right-8 -right-6 md:w-[50%] md:h-[70%] w-1/2 h-1/2 object-cover rounded-2xl shadow-2xl z-20 border-4 border-zinc-900" alt="" referrerPolicy="no-referrer" />
-                      <img src={category.previewImages[2]} className="absolute md:-bottom-15 bottom-4 right-2 w-1/3 md:h-[60%] h-[40%] object-cover rounded-2xl shadow-2xl z-30 border-4 border-zinc-900" alt="" referrerPolicy="no-referrer" />
+                      <img src={category.previewImages[0]}  className="absolute top-0 left-0 md:w-1/2 w-3/4   h-full object-cover rounded-2xl shadow-2xl z-10" alt="" referrerPolicy="no-referrer"  loading="lazy" />
+                      <img src={category.previewImages[1]} className="absolute top-4 md:right-8 -right-6 md:w-[50%] md:h-[70%] w-1/2 h-1/2 object-cover rounded-2xl shadow-2xl z-20 border-4 border-zinc-900" alt="" referrerPolicy="no-referrer" loading="lazy" />
+                      <img src={category.previewImages[2]} className="absolute md:-bottom-15 bottom-4 right-2 w-1/3 md:h-[60%] h-[40%] object-cover rounded-2xl shadow-2xl z-30 border-4 border-zinc-900" alt="" referrerPolicy="no-referrer" loading="lazy" />
                     </div>
                   )}
                   {category.type === "social" && (
                     <div className="grid grid-cols-2 gap-4 w-full h-full">
                       {category.previewImages.map((img, i) => (
-                        <img key={i} src={img} className="w-full h-full object-cover rounded-2xl shadow-xl" alt="" referrerPolicy="no-referrer" />
+                        <img key={i} src={img} className="w-full h-full object-cover rounded-2xl shadow-xl" alt="" referrerPolicy="no-referrer"  loading="lazy" />
                       ))}
                     </div>
                   )}
@@ -88,21 +89,21 @@ export default function Projects() {
                     <div className="grid grid-cols-3 gap-4 w-full h-full">
                       {category.previewImages.map((img, i) => (
                         <div key={i} className="bg-zinc-800 rounded-2xl flex items-center justify-center p-4 shadow-lg">
-                          <img src={img} className="w-full h-full object-contain mix-blend-lighten opacity-80" alt="" referrerPolicy="no-referrer" />
+                          <img src={img} className="w-full h-full object-contain mix-blend-lighten opacity-80" alt="" referrerPolicy="no-referrer" loading="lazy" />
                         </div>
                       ))}
                     </div>
                   )}
                   {category.type === "posters" && (
                     <div className="relative w-full h-full flex items-center justify-center gap-6">
-                      <img src={category.previewImages[0]} className="w-[60%] md:h-full  h-[60%] object-cover rounded-2xl shadow-2xl -rotate-6 transform translate-x-4" alt="" referrerPolicy="no-referrer" />
-                      <img src={category.previewImages[1]} className="w-[60%] md:h-full  h-[60%] object-cover rounded-2xl shadow-2xl rotate-6 transform -translate-x-4" alt="" referrerPolicy="no-referrer" />
+                      <img src={category.previewImages[0]} className="w-[60%] md:h-full  h-[60%] object-cover rounded-2xl shadow-2xl -rotate-6 transform translate-x-4" alt="" referrerPolicy="no-referrer" loading="lazy" />
+                      <img src={category.previewImages[1]} className="w-[60%] md:h-full  h-[60%] object-cover rounded-2xl shadow-2xl rotate-6 transform -translate-x-4" alt="" referrerPolicy="no-referrer" loading="lazy" />
                     </div>
                   )}
                   {(category.type === "uiux" || category.type === "motion") && (
                     <div className="grid grid-cols-1 gap-4 w-full h-full">
                       {category.previewImages.map((img, i) => (
-                        <img key={i} src={img} className="w-full h-full object-cover rounded-2xl shadow-xl" alt="" referrerPolicy="no-referrer" />
+                        <img key={i} src={img} className="w-full h-full object-cover rounded-2xl shadow-xl" alt="" referrerPolicy="no-referrer" loading="lazy" />
                       ))}
                     </div>
                   )}

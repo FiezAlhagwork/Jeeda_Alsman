@@ -17,7 +17,7 @@ export const animateWithGsap = (
   });
 };
 export const animateWithGsapForm = (
-  target: string | HTMLElement | HTMLElement[],
+  target: string | HTMLElement | HTMLElement[] | [],
   animationProps: gsap.TweenVars,
   scrollProps?: ScrollTrigger.Vars
 ): void => {

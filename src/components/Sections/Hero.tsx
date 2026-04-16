@@ -1,8 +1,7 @@
 import { useRef } from "react";
-import { gsap } from "gsap";
-import HeroCtaButton from "./HeroCtaButton";
+import Button from "../ui/Button";
 import { useGSAP } from "@gsap/react";
-import { animateWithGsap, animateWithGsapForm } from "../utils/animations";
+import { animateWithGsap, animateWithGsapForm } from "../../utils/animations";
 
 
 
@@ -14,33 +13,25 @@ export default function Hero() {
   const descriptionRef = useRef<HTMLParagraphElement>(null);
 
   useGSAP(() => {
-    const ctx = gsap.context(() => {
-      // Parallax effect for the massive background text
-      animateWithGsap(textRef.current, { y: -50 }, { start: "top 85%", end: "bottom top", scrub: 2 });
-      animateWithGsap(imageRef.current, { scale: 1.15 }, { start: "top 85%", end: "bottom top", scrub: 2 });
+    animateWithGsap(textRef.current, { y: -50 }, { start: "top 85%", end: "bottom top", scrub: 2 });
+    animateWithGsap(imageRef.current, { scale: 1.15 }, { start: "top 85%", end: "bottom top", scrub: 2 });
+    if (descriptionRef.current) {
+      const text = descriptionRef.current.innerText;
+      descriptionRef.current.innerHTML = text
+        .split(" ")
+        .map(word => `<span class="inline-block overflow-hidden"><span class="word inline-block">${word}</span></span>`)
+        .join(" ");
 
-      // Text reveal animation
-      if (descriptionRef.current) {
-        const text = descriptionRef.current.innerText;
-        descriptionRef.current.innerHTML = text
-          .split(" ")
-          .map(word => `<span class="inline-block overflow-hidden"><span class="word inline-block">${word}</span></span>`)
-          .join(" ");
-
-        animateWithGsapForm(".word", {
-          y: "100%",
-          opacity: 0,
-          duration: 1,
-          stagger: 0.05,
-          ease: "power4.out",
-          delay: 0.5,
-        });
-      }
-    }, containerRef);
-
-    return () => ctx.revert();
-  }, []);
-
+      animateWithGsapForm(".word", {
+        y: "100%",
+        opacity: 0,
+        duration: 1,
+        stagger: 0.05,
+        ease: "power4.out",
+        delay: 0.5,
+      });
+    }
+  }, { scope: containerRef });
 
   return (
     <section
@@ -52,13 +43,13 @@ export default function Hero() {
         ref={imageRef}
         className="absolute inset-0 z-0"
       >
-        <div className=" absolute inset-0 z-10 " />
-        <div className=" absolute inset-0 z-10 " />
         <img
           src="/photo_2026-04-09_19-20-03.jpg"
           alt="jeeda Portrait"
           className="w-full h-full object-cover"
           referrerPolicy="no-referrer"
+          width="1920"
+          height="1080"
         />
       </div>
 
@@ -68,10 +59,9 @@ export default function Hero() {
           ref={descriptionRef}
           className="text-md md:text-xl font-medium text-white leading-[1.2] mb-4 text-balance "
         >
-          I design and build high converting websites and save your time with AI automations
-        </p>
+          I design and craft stunning visuals and boost your brand with creative graphic design        </p>
 
-        <HeroCtaButton />
+        <Button />
       </div>
 
       {/* Massive Background Text */}
