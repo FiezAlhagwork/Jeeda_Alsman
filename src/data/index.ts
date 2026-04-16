@@ -8,7 +8,6 @@ export interface Project {
 export interface Client {
     id: string;
     name: string;
-    description: string;
     projectCount: number;
     type: "branding" | "social" | "logos" | "posters" | "uiux" | "motion";
     previewImages: string[];
@@ -26,7 +25,6 @@ export const clientsData: Client[] = [
     {
         id: "social",
         name: "social",
-        description: "Strategic brand identities that tell a story and build lasting connections.",
         projectCount: 12,
         type: "branding",
         previewImages: [
@@ -52,7 +50,6 @@ export const clientsData: Client[] = [
     {
         id: "Soft",
         name: "Soft",
-        description: "Engaging digital content designed to stop the scroll and spark conversation.",
         projectCount: 24,
         type: "social",
         previewImages: [
@@ -81,7 +78,6 @@ export const clientsData: Client[] = [
     {
         id: "eilajCare",
         name: "Eilaj Care ",
-        description: "Experimental typography and layout design for cultural and commercial events.",
         projectCount: 18,
         type: "posters",
         previewImages: [
@@ -100,7 +96,6 @@ export const clientsData: Client[] = [
     {
         id: "BabyJoy",
         name: "Baby Joy",
-        description: "Dynamic visual storytelling through animation and cinematic movement.",
         projectCount: 15,
         type: "social",
         previewImages: [
@@ -122,7 +117,6 @@ export const clientsData: Client[] = [
     {
         id: "Lifree",
         name: "Lifree",
-        description: "Experimental typography and layout design for cultural and commercial events.",
         projectCount: 18,
         type: "branding",
         previewImages: [

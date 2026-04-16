@@ -66,9 +66,6 @@ export default function ClientPage() {
           <h1 className="text-6xl md:text-8xl font-black tracking-tighter mb-8 italic">
             {client.name}
           </h1>
-          <p className="text-zinc-400 text-xl md:text-2xl max-w-3xl leading-relaxed font-light">
-            {client.description}
-          </p>
         </div>
 
         {client.projects.length > 0 && (

@@ -1,3 +1,4 @@
+import Contact from "../components/Contact"
 import Hero from "../components/Hero"
 import InfiniteTicker from "../components/InfiniteTicker"
 import Pricing from "../components/Pricing"
@@ -47,7 +48,7 @@ const Home = () => {
             <InfiniteTicker />
             <Projects />
             <Process />
-            <Pricing />
+            <Contact />
         </>
     )
 }
