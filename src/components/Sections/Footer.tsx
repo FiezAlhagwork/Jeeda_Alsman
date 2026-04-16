@@ -12,9 +12,10 @@ const Footer = () => {
                 <div className="grid grid-cols-2 gap-24">
                     <div className="flex flex-col gap-4">
                         <span className="text-xs uppercase tracking-widest text-white/30 font-bold">(Social)</span>
-                        <a href="mailto:jeedaalsamman@gmail.com" className="hover:text-white/70 transition-colors font-bold">jeedaalsamman@gmail.com</a>
                         <a href="https://www.instagram.com/jeeda_samman?igsh=Z3V6cHkwMHJsZGlk&utm_source=qr" className="hover:text-white/70 transition-colors font-bold">Instagram</a>
+                        <a href="https://www.instagram.com/jeeda_samman?igsh=Z3V6cHkwMHJsZGlk&utm_source=qr" className="hover:text-white/70 transition-colors font-bold">whatsapp</a>
                         <a href="https://www.behance.net/jeedadesigns?utm_source=ig&utm_medium=social&utm_content=link_in_bio&fbclid=PAdGRleARK9x9leHRuA2FlbQIxMQBzcnRjBmFwcF9pZA8xMjQwMjQ1NzQyODc0MTQAAaeO7Toqx-nc4MYXwGgXjBDVkXwlwTkz_7V-TmYjQA7gdt1vsGLMCKQn6NrSVg_aem_cPrNCa0KgoVSXOeSssVk6Q" className="hover:text-white/70 transition-colors font-bold">Behance</a>
+                        <a href="mailto:jeedaalsamman@gmail.com" className="hover:text-white/70 transition-colors font-bold">jeedaalsamman@gmail.com</a>
                     </div>
                     <div className="flex flex-col gap-4">
                         <span className="text-xs uppercase tracking-widest text-white/30 font-bold">(navigation)</span>
