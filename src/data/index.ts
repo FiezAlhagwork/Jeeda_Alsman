@@ -1,9 +1,8 @@
 export interface Project {
     id: number;
-    title: string;
+    title?: string;
     category: string;
     image: string;
-    description: string;
 }
 
 export interface Client {
@@ -36,17 +35,17 @@ export const clientsData: Client[] = [
             publicImage("social3.jpg"),
         ],
         projects: [
-            { id: 101, title: "Ethereal Essence", category: "social", image: publicImage("social1.jpg"), description: "Minimalist luxury branding." },
-            { id: 102, title: "Organic Roots", category: "social", image: publicImage("social2.jpg"), description: "Sustainable skincare identity." },
-            { id: 103, title: "Solaris Identity", category: "social", image: publicImage("social3.jpg"), description: "Renewable energy visual system." },
-            { id: 104, title: "Solaris Identity", category: "social", image: publicImage("social4.jpg"), description: "Renewable energy visual system." },
-            { id: 105, title: "Solaris Identity", category: "social", image: publicImage("social5.jpg"), description: "Renewable energy visual system." },
-            { id: 106, title: "Solaris Identity", category: "social", image: publicImage("social6.jpg"), description: "Renewable energy visual system." },
-            { id: 107, title: "Solaris Identity", category: "social", image: publicImage("social7.jpg"), description: "Renewable energy visual system." },
-            { id: 108, title: "Solaris Identity", category: "social", image: publicImage("social8.jpg"), description: "Renewable energy visual system." },
-            { id: 109, title: "Solaris Identity", category: "social", image: publicImage("social9.jpg"), description: "Renewable energy visual system." },
-            { id: 110, title: "Solaris Identity", category: "social", image: publicImage("social10.jpg"), description: "Renewable energy visual system." },
-            { id: 111, title: "Solaris Identity", category: "social", image: publicImage("social11.jpg"), description: "Renewable energy visual system." },
+            { id: 101, title: "Ethereal Essence", category: "social", image: publicImage("social1.jpg") },
+            { id: 102, title: "Organic Roots", category: "social", image: publicImage("social2.jpg") },
+            { id: 103, title: "Solaris Identity", category: "social", image: publicImage("social3.jpg") },
+            { id: 104, title: "Solaris Identity", category: "social", image: publicImage("social4.jpg") },
+            { id: 105, title: "Solaris Identity", category: "social", image: publicImage("social5.jpg") },
+            { id: 106, title: "Solaris Identity", category: "social", image: publicImage("social6.jpg") },
+            { id: 107, title: "Solaris Identity", category: "social", image: publicImage("social7.jpg") },
+            { id: 108, title: "Solaris Identity", category: "social", image: publicImage("social8.jpg") },
+            { id: 109, title: "Solaris Identity", category: "social", image: publicImage("social9.jpg") },
+            { id: 110, title: "Solaris Identity", category: "social", image: publicImage("social10.jpg") },
+            { id: 111, title: "Solaris Identity", category: "social", image: publicImage("social11.jpg") },
         ]
     },
 
@@ -63,18 +62,18 @@ export const clientsData: Client[] = [
             publicImage("soft4.jpg"),
         ],
         projects: [
-            { id: 201, title: "Urban Pulse", category: "Campaign", image: publicImage("soft1.jpg"), description: "Streetwear social strategy." },
-            { id: 202, title: "Neon Nights", category: "Content", image: publicImage("soft2.jpg"), description: "Festival visual content." },
-            { id: 203, title: "Neon Nights", category: "Content", image: publicImage("soft3.jpg"), description: "Festival visual content." },
-            { id: 204, title: "Neon Nights", category: "Content", image: publicImage("soft4.jpg"), description: "Festival visual content." },
-            { id: 205, title: "Neon Nights", category: "Content", image: publicImage("soft5.jpg"), description: "Festival visual content." },
-            { id: 206, title: "Neon Nights", category: "Content", image: publicImage("soft6.jpg"), description: "Festival visual content." },
-            { id: 207, title: "Neon Nights", category: "Content", image: publicImage("soft7.jpg"), description: "Festival visual content." },
-            { id: 208, title: "Neon Nights", category: "Content", image: publicImage("soft8.jpg"), description: "Festival visual content." },
-            { id: 209, title: "Neon Nights", category: "Content", image: publicImage("soft9.jpg"), description: "Festival visual content." },
-            { id: 210, title: "Neon Nights", category: "Content", image: publicImage("soft10.jpg"), description: "Festival visual content." },
-            { id: 211, title: "Neon Nights", category: "Content", image: publicImage("soft11.jpg"), description: "Festival visual content." },
-            { id: 212, title: "Neon Nights", category: "Content", image: publicImage("soft12.jpg"), description: "Festival visual content." },
+            { id: 201, title: "Urban Pulse", category: "soft", image: publicImage("soft1.jpg"), },
+            { id: 202, title: "Neon Nights", category: "soft", image: publicImage("soft2.jpg"), },
+            { id: 203, title: "Neon Nights", category: "soft", image: publicImage("soft3.jpg"), },
+            { id: 204, title: "Neon Nights", category: "soft", image: publicImage("soft4.jpg"), },
+            { id: 205, title: "Neon Nights", category: "soft", image: publicImage("soft5.jpg"), },
+            { id: 206, title: "Neon Nights", category: "soft", image: publicImage("soft6.jpg"), },
+            { id: 207, title: "Neon Nights", category: "soft", image: publicImage("soft7.jpg"), },
+            { id: 208, title: "Neon Nights", category: "soft", image: publicImage("soft8.jpg"), },
+            { id: 209, title: "Neon Nights", category: "soft", image: publicImage("soft9.jpg"), },
+            { id: 210, title: "Neon Nights", category: "soft", image: publicImage("soft10.jpg"), },
+            { id: 211, title: "Neon Nights", category: "soft", image: publicImage("soft11.jpg"), },
+            { id: 212, title: "Neon Nights", category: "soft", image: publicImage("soft12.jpg"), },
         ]
     },
 
@@ -90,12 +89,12 @@ export const clientsData: Client[] = [
             publicImage("eilajCare2.jpg"),
         ],
         projects: [
-            { id: 401, title: "Vivid Visions", category: "Experimental", image: publicImage("eilajCare1.jpg"), description: "Color theory exploration." },
-            { id: 402, title: "Minimalist Muse", category: "Architecture", image: publicImage("eilajCare2.jpg"), description: "Exhibition poster series." },
-            { id: 403, title: "Minimalist Muse", category: "Architecture", image: publicImage("eilajCare3.jpg"), description: "Exhibition poster series." },
-            { id: 404, title: "Minimalist Muse", category: "Architecture", image: publicImage("eilajCare4.jpg"), description: "Exhibition poster series." },
-            { id: 405, title: "Minimalist Muse", category: "Architecture", image: publicImage("eilajCare5.jpg"), description: "Exhibition poster series." },
-            { id: 406, title: "Minimalist Muse", category: "Architecture", image: publicImage("eilajCare6.jpg"), description: "Exhibition poster series." },
+            { id: 401, title: "Vivid Visions", category: "Eilaj Care ", image: publicImage("eilajCare1.jpg"), },
+            { id: 402, title: "Minimalist Muse", category: "Eilaj Care ", image: publicImage("eilajCare2.jpg"), },
+            { id: 403, title: "Minimalist Muse", category: "Eilaj Care ", image: publicImage("eilajCare3.jpg"), },
+            { id: 404, title: "Minimalist Muse", category: "Eilaj Care ", image: publicImage("eilajCare4.jpg"), },
+            { id: 405, title: "Minimalist Muse", category: "Eilaj Care ", image: publicImage("eilajCare5.jpg"), },
+            { id: 406, title: "Minimalist Muse", category: "Eilaj Care ", image: publicImage("eilajCare6.jpg"), },
         ]
     },
     {
@@ -111,13 +110,13 @@ export const clientsData: Client[] = [
             publicImage("babyJoy4.jpg"),
         ],
         projects: [
-            { id: 601, title: "Brand Intro", category: "Animation", image: publicImage("babyJoy1.jpg"), description: "Cinematic brand reveal." },
-            { id: 602, title: "App Promo", category: "Explainer", image: publicImage("babyJoy2.jpg"), description: "Feature highlight animation." },
-            { id: 603, title: "App Promo", category: "Explainer", image: publicImage("babyJoy3.jpg"), description: "Feature highlight animation." },
-            { id: 604, title: "App Promo", category: "Explainer", image: publicImage("babyJoy4.jpg"), description: "Feature highlight animation." },
-            { id: 605, title: "App Promo", category: "Explainer", image: publicImage("Teemo.jpg"), description: "Feature highlight animation." },
-            { id: 606, title: "App Promo", category: "Explainer", image: publicImage("Teemo1.jpg"), description: "Feature highlight animation." },
-            { id: 607, title: "App Promo", category: "Explainer", image: publicImage("Teemo2.jpg"), description: "Feature highlight animation." },
+            { id: 601, title: "Brand Intro", category: "Baby Joy", image: publicImage("babyJoy1.jpg") },
+            { id: 602, title: "App Promo", category: "Baby Joy", image: publicImage("babyJoy2.jpg") },
+            { id: 603, title: "App Promo", category: "Baby Joy", image: publicImage("babyJoy3.jpg") },
+            { id: 604, title: "App Promo", category: "Baby Joy", image: publicImage("babyJoy4.jpg") },
+            { id: 605, title: "App Promo", category: "Baby Joy", image: publicImage("Teemo.jpg") },
+            { id: 606, title: "App Promo", category: "Baby Joy", image: publicImage("Teemo1.jpg") },
+            { id: 607, title: "App Promo", category: "Baby Joy", image: publicImage("Teemo2.jpg") },
         ]
     },
     {
@@ -132,9 +131,9 @@ export const clientsData: Client[] = [
             publicImage("lifree3.jpg"),
         ],
         projects: [
-            { id: 401, title: "Vivid Visions", category: "Experimental", image: publicImage("lifree1.jpg"), description: "Color theory exploration." },
-            { id: 402, title: "Minimalist Muse", category: "Architecture", image: publicImage("lifree2.jpg"), description: "Exhibition poster series." },
-            { id: 403, title: "Minimalist Muse", category: "Architecture", image: publicImage("lifree3.jpg"), description: "Exhibition poster series." },
+            { id: 401, title: "Vivid Visions", category: "Lifree", image: publicImage("lifree1.jpg") },
+            { id: 402, title: "Minimalist Muse", category: "Lifree", image: publicImage("lifree2.jpg") },
+            { id: 403, title: "Minimalist Muse", category: "Lifree", image: publicImage("lifree3.jpg") },
         ]
     },
     // {

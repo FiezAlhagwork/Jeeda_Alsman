@@ -46,7 +46,7 @@ export default function Projects() {
   }, []);
 
   return (
-    <section ref={sectionRef} id="categories" className="py-32 px-6 md:px-10 bg-[#000000] text-white">
+    <section ref={sectionRef} id="project" className="py-32 px-6 md:px-10 bg-[#000000] text-white">
       <div className="max-w-7xl mx-auto">
         {/* Section Header */}
         <div ref={headerRef} className="mb-20 text-center">
@@ -65,11 +65,11 @@ export default function Projects() {
             <Link
               key={category.id}
               to={`/projects/${category.id}`}
-              className="category-card group relative aspect-4/5 md:aspect-16/10 overflow-hidden rounded-[32px] bg-zinc-900 cursor-pointer"
+              className="category-card group relative overflow-hidden rounded-[32px] bg-zinc-900 cursor-pointer"
             >
               {/* Composite Image Preview */}
-              <div className="absolute inset-0 p-8 flex items-center justify-center overflow-hidden">
-                <div className="relative w-full h-full transition-transform duration-700 group-hover:scale-105">
+              <div className="relative aspect-4/5 md:aspect-16/10 p-8 flex items-center justify-center overflow-hidden">
+                <div className="relative w-full h-full transition-transform duration-700 lg:group-hover:scale-105">
                   {category.type === "branding" && (
                     <div className="relative w-full h-full">
                       <img src={category.previewImages[0]} className="absolute top-0 left-0 md:w-1/2 w-3/4   h-full object-cover rounded-2xl shadow-2xl z-10" alt="" referrerPolicy="no-referrer" />
@@ -110,20 +110,35 @@ export default function Projects() {
               </div>
 
               {/* Overlay */}
-              <div className="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex items-center justify-center z-40">
-                <div className="bg-white text-black px-8 py-4 rounded-full font-bold flex items-center gap-2 transform translate-y-4 group-hover:translate-y-0 transition-transform duration-500">
+              <div className="absolute inset-0 bg-black/40 opacity-0 lg:group-hover:opacity-100 transition-opacity duration-500 hidden lg:flex items-center justify-center z-40">
+                <div className="bg-white text-black px-8 py-4 rounded-full font-bold flex items-center gap-2 transform translate-y-4 lg:group-hover:translate-y-0 transition-transform duration-500">
                   View Projects <ArrowRight className="w-5 h-5" />
                 </div>
               </div>
 
-              {/* Info Overlay (Always visible but styled) */}
-              <div className="absolute inset-x-0 bottom-0 p-8 md:p-12 bg-linear-to-t from-black/80 via-black/40 to-transparent z-30">
-                <div className="flex justify-between items-end">
+              {/* Info Section for mobile/md */}
+              <div className="p-6 md:p-8 bg-zinc-900 lg:hidden">
+                <div className="flex items-end justify-between gap-4">
                   <div>
-                    <span className="text-sm uppercase tracking-[0.3em] text-[#ffffff] font-bold mb-2 block">
+                    <span className="text-xs md:text-sm uppercase tracking-[0.3em] text-[#ffffff] font-bold mb-2 block">
                       {category.projectCount} Projects
                     </span>
-                    <h3 className="text-xl md:text-5xl font-black tracking-tighter">
+                    <h3 className="text-2xl md:text-3xl font-black tracking-tighter">
+                      {category.name}
+                    </h3>
+                  </div>
+                  <span className="flex items-center  gap-2 uppercase text-md   text-[#ffffff] font-bold mb-2 ">view project<ArrowRight className="w-5 h-5 md:w-6 md:h-6 shrink-0 text-white/80 mt- 1" /></span>
+                </div>
+              </div>
+
+              {/* Info Overlay for large screens */}
+              <div className="hidden lg:block absolute inset-x-0 bottom-0 p-8 md:p-12 bg-linear-to-t from-black/80 via-black/40 to-transparent z-30">
+                <div className="flex justify-between items-end">
+                  <div>
+                    <span className="text-sm uppercase tracking-[0.3em] text-[#ffffff] font-bold mb-2 block ">
+                      {category.projectCount} Projects
+                    </span>
+                    <h3 className="text-3xl md:text-4xl font-black tracking-tighter">
                       {category.name}
                     </h3>
                   </div>
