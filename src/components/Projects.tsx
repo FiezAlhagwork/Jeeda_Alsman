@@ -65,10 +65,10 @@ export default function Projects() {
             <Link
               key={category.id}
               to={`/projects/${category.id}`}
-              className="category-card group relative overflow-hidden rounded-[32px] bg-zinc-900 cursor-pointer"
+              className="category-card group relative overflow-hidden rounded-[32px] bg-zinc-900 cursor-pointer pt-4"
             >
               {/* Composite Image Preview */}
-              <div className="relative aspect-4/5 md:aspect-16/10 p-8 flex items-center justify-center overflow-hidden">
+              <div className="relative aspect-4/5 md:aspect-16/10 p-8  flex items-center justify-center overflow-hidden">
                 <div className="relative w-full h-full transition-transform duration-700 lg:group-hover:scale-105">
                   {category.type === "branding" && (
                     <div className="relative w-full h-full">
@@ -127,7 +127,7 @@ export default function Projects() {
                       {category.name}
                     </h3>
                   </div>
-                  <span className="flex items-center  gap-2 uppercase text-md   text-[#ffffff] font-bold mb-2 ">view project<ArrowRight className="w-5 h-5 md:w-6 md:h-6 shrink-0 text-white/80 mt- 1" /></span>
+                  <ArrowRight className="w-5 h-5 md:w-6 md:h-6 shrink-0 text-white/80 mt- 1" />
                 </div>
               </div>
 
