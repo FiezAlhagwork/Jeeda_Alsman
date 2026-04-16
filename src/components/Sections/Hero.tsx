@@ -1,9 +1,11 @@
+
 import { useRef } from "react";
+import { gsap } from "gsap";
 import Button from "../ui/Button";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { useGSAP } from "@gsap/react";
-import { animateWithGsap, animateWithGsapForm } from "../../utils/animations";
 
-
+gsap.registerPlugin(ScrollTrigger);
 
 
 export default function Hero() {
@@ -13,24 +15,40 @@ export default function Hero() {
   const descriptionRef = useRef<HTMLParagraphElement>(null);
 
   useGSAP(() => {
-    animateWithGsap(textRef.current, { y: -50 }, { start: "top 85%", end: "bottom top", scrub: 2 });
-    animateWithGsap(imageRef.current, { scale: 1.15 }, { start: "top 85%", end: "bottom top", scrub: 2 });
-    if (descriptionRef.current) {
-      const text = descriptionRef.current.innerText;
-      descriptionRef.current.innerHTML = text
-        .split(" ")
-        .map(word => `<span class="inline-block overflow-hidden"><span class="word inline-block">${word}</span></span>`)
-        .join(" ");
+    // 1. صورة الخلفية - parallax
+    gsap.to(
+      imageRef.current,
+      {
+        scale: 1.15,
+        scrollTrigger: {
+          trigger: containerRef.current,
+          start: "top top",
+          end: "bottom top",
+          scrub: 1.5,
+        }
+      }
+    );
 
-      animateWithGsapForm(".word", {
+    if (descriptionRef.current) {
+      gsap.from(descriptionRef.current, {
         y: "100%",
         opacity: 0,
-        duration: 1,
-        stagger: 0.05,
+        duration: 0.8,
+        stagger: 0,
         ease: "power4.out",
-        delay: 0.5,
+        delay: 0.3,
+
       });
     }
+
+    // 3. Jeeda - scale من 0 لـ 1 عند فتح الصفحة
+    gsap.from(textRef.current, {
+      scale: 0.6,
+      opacity: 0,
+      duration: 0.6,
+      ease: "power2.out",
+      delay: 0.3
+    });
   }, { scope: containerRef });
 
   return (
@@ -38,13 +56,10 @@ export default function Hero() {
       ref={containerRef}
       className="relative min-h-screen w-full flex flex-col justify-center items-start px-8 md:px-[8%] overflow-hidden"
     >
-      {/* Background Image Container */}
-      <div
-        ref={imageRef}
-        className="absolute inset-0 z-0"
-      >
+      {/* Background Image */}
+      <div ref={imageRef} className="absolute inset-0 z-0">
         <img
-          src="/photo_2026-04-09_19-20-03.jpg"
+          src="/photo_2026-04-16_12-33-37.jpg"
           alt="jeeda Portrait"
           className="w-full h-full object-cover"
           referrerPolicy="no-referrer"
@@ -54,25 +69,24 @@ export default function Hero() {
       </div>
 
       {/* Content */}
-      <div className="relative z-20 max-w-[222px] md:max-w-sm  max-lg:mt-40">
+      <div className="relative z-20 max-w-[222px] md:max-w-sm max-lg:mt-40">
         <p
           ref={descriptionRef}
-          className="text-md md:text-xl font-medium text-white leading-[1.2] mb-4 text-balance "
+          className="text-md md:text-xl font-medium text-white leading-[1.2] mb-4 text-balance"
         >
-          I design and craft stunning visuals and boost your brand with creative graphic design        </p>
-
+          I design and craft stunning visuals and boost your brand with creative graphic design
+        </p>
         <Button />
       </div>
 
       {/* Massive Background Text */}
       <h1
         ref={textRef}
-        className="absolute bottom-0  left-1/2 -translate-x-1/2 md:text-[17vw] sm:text-[35vw] text-[30vw] font-black leading-none text-white/90 select-none z-30 pointer-events-none tracking-tighter whitespace-nowrap"
+        style={{ transformOrigin: "center bottom" }}
+        className="absolute bottom-0 left-1/2 -translate-x-1/2 md:text-[17vw] sm:text-[35vw] text-[30vw] font-black leading-none text-white/90 select-none z-30 pointer-events-none tracking-tighter whitespace-nowrap will-change-transform"
       >
         Jeeda
       </h1>
-
-
     </section>
   );
 }
