@@ -65,6 +65,9 @@ export default function Hero() {
           referrerPolicy="no-referrer"
           width="1920"
           height="1080"
+          fetchPriority="high"   // ← هاد الأهم
+          loading="eager"        // ← لا تـ lazy load صورة الـ hero
+          decoding="sync"
         />
       </div>
 

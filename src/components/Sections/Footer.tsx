@@ -7,8 +7,7 @@ const Footer = () => {
                 <div>
                     <h2 className="text-7xl font-black mb-8">JEEDA</h2>
                     <p className="text-white/50 max-w-xs">
-                        Crafting digital experiences that blend high-fashion aesthetics with technical precision.
-                    </p>
+                        Crafting visual identities that merge creative storytelling with precise design execution.                    </p>
                 </div>
                 <div className="grid grid-cols-2 gap-24">
                     <div className="flex flex-col gap-4">

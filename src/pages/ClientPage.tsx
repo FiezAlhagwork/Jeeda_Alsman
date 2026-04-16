@@ -78,6 +78,7 @@ export default function ClientPage() {
                 <img
                   src={project.image}
                   alt={project.title}
+                
                   className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
                   referrerPolicy="no-referrer"
                   loading="lazy"
