@@ -10,6 +10,7 @@ import Footer from "./components/Sections/Footer";
 
 
 export default function App() {
+console.log();
 
   return (
     <main className="relative min-h-screen">
