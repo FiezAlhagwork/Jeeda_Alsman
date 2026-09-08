@@ -8,7 +8,7 @@ import { useGSAP } from "@gsap/react";
 gsap.registerPlugin(ScrollTrigger);
 
 
-export default function Hero() {
+const Hero = () => {
   const containerRef = useRef<HTMLDivElement>(null);
   const textRef = useRef<HTMLHeadingElement>(null);
   const imageRef = useRef<HTMLDivElement>(null);
@@ -93,3 +93,6 @@ export default function Hero() {
     </section>
   );
 }
+
+
+export default Hero

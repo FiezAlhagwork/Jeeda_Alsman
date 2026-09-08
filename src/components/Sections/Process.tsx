@@ -7,7 +7,7 @@ import { steps } from "@/src/data";
 gsap.registerPlugin(ScrollTrigger);
 
 
-export default function Process() {
+const Process = () => {
   const sectionRef = useRef<HTMLElement>(null);
   const titleRef = useRef<HTMLDivElement>(null);
   const pinWrapperRef = useRef<HTMLDivElement>(null);
@@ -120,3 +120,6 @@ export default function Process() {
     </section>
   );
 }
+
+
+export default Process

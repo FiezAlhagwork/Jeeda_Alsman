@@ -1,5 +1,4 @@
 import { useRef } from "react";
-import { gsap } from "gsap";
 import ServiceCard from "../ui/ServiceCard";
 import { useGSAP } from "@gsap/react";
 import Button from "../ui/Button";
@@ -7,7 +6,7 @@ import { animateFromToWithGsap, animateWithGsapForm } from "../../utils/animatio
 import { services } from "@/src/data";
 
 
-export default function Services() {
+const Services = () => {
   const sectionRef = useRef<HTMLElement>(null);
   const headerRef = useRef<HTMLHeadingElement>(null);
   const buttonRef = useRef<HTMLButtonElement>(null);
@@ -81,3 +80,5 @@ export default function Services() {
     </section>
   );
 }
+
+export default Services

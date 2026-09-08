@@ -1,4 +1,4 @@
-import {  useRef } from "react";
+import { useRef } from "react";
 import { gsap } from "gsap";
 import {
   PenTool,
@@ -23,7 +23,7 @@ const skills = [
   { label: "Photo Editing", icon: Camera },
 ];
 
-export default function InfiniteTicker() {
+const InfiniteTicker = () => {
   const tickerRef = useRef<HTMLDivElement>(null);
   const trackRef = useRef<HTMLDivElement>(null);
 
@@ -110,3 +110,6 @@ export default function InfiniteTicker() {
 
   );
 }
+
+
+export default InfiniteTicker

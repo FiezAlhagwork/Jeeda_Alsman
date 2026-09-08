@@ -7,7 +7,7 @@ import TextArea from "../ui/TextArea";
 import { animateWithGsapForm } from "@/src/utils/animations";
 
 
-export default function Contact() {
+const Contact = () => {
     const sectionRef = useRef<HTMLElement>(null);
     const [name, setName] = useState("");
     const [message, setMessage] = useState("");
@@ -138,3 +138,6 @@ export default function Contact() {
         </section>
     );
 }
+
+
+export default Contact

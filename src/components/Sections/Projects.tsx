@@ -5,7 +5,7 @@ import { useGSAP } from "@gsap/react";
 import { clientsData } from "@/src/data";
 import { animateWithGsapForm } from "@/src/utils/animations";
 
-export default function Projects() {
+const Projects = () => {
   const sectionRef = useRef<HTMLElement>(null);
   const headerRef = useRef<HTMLDivElement>(null);
 
@@ -73,7 +73,7 @@ export default function Projects() {
                 <div className="relative w-full h-full transition-transform duration-700 lg:group-hover:scale-105">
                   {category.type === "branding" && (
                     <div className="relative w-full h-full">
-                      <img src={category.previewImages[0]}  className="absolute top-0 left-0 md:w-1/2 w-3/4   h-full object-cover rounded-2xl shadow-2xl z-10" alt="" referrerPolicy="no-referrer"  loading="lazy" />
+                      <img src={category.previewImages[0]} className="absolute top-0 left-0 md:w-1/2 w-3/4   h-full object-cover rounded-2xl shadow-2xl z-10" alt="" referrerPolicy="no-referrer" loading="lazy" />
                       <img src={category.previewImages[1]} className="absolute top-4 md:right-8 -right-6 md:w-[50%] md:h-[70%] w-1/2 h-1/2 object-cover rounded-2xl shadow-2xl z-20 border-4 border-zinc-900" alt="" referrerPolicy="no-referrer" loading="lazy" />
                       <img src={category.previewImages[2]} className="absolute md:-bottom-15 bottom-4 right-2 w-1/3 md:h-[60%] h-[40%] object-cover rounded-2xl shadow-2xl z-30 border-4 border-zinc-900" alt="" referrerPolicy="no-referrer" loading="lazy" />
                     </div>
@@ -81,7 +81,7 @@ export default function Projects() {
                   {category.type === "social" && (
                     <div className="grid grid-cols-2 gap-4 w-full h-full">
                       {category.previewImages.map((img, i) => (
-                        <img key={i} src={img} className="w-full h-full object-cover rounded-2xl shadow-xl" alt="" referrerPolicy="no-referrer"  loading="lazy" />
+                        <img key={i} src={img} className="w-full h-full object-cover rounded-2xl shadow-xl" alt="" referrerPolicy="no-referrer" loading="lazy" />
                       ))}
                     </div>
                   )}
@@ -152,3 +152,6 @@ export default function Projects() {
     </section>
   );
 }
+
+
+export default Projects
